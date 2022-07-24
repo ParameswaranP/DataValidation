@@ -1,4 +1,3 @@
-crane
-jobs
-beam
-new_edge
+person
+helmet
+coat

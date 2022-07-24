@@ -5,6 +5,8 @@ from matplotlib.cm import ScalarMappable
 import numpy as np
 
 health_dic, Count_add_dic, value_1 = {}, {}, []
+current_dataset_path = r"./dataset"
+classes_path = r"./classes.txt"
 
 
 def classes_count_check(cla, txt_path):
@@ -58,10 +60,6 @@ def classes_graph(dic):
 def health_check_detector_crisp(value_dic):
     value = list(value_dic.values())
     print("Current Max value is ", max(value))
-    # max_check = input("Do you want to change it. If yes please enter (y/n)  : ")
-    # if max_check == "y" or max_check == "Y":
-    #     max_num = int(input("Please Enter the Max value, that all you classes count will be to checked - "))
-    # else:
     max_num = max(value)
     remaining = {}
     print("New Max Number is", max_num)
@@ -102,8 +100,6 @@ def health_bal_graph_try(count_bal, real_count):
 
 
 if __name__ == "__main__":
-    current_dataset_path = r"./obj"
-    classes_path = r"./classes.txt"
     classes = []
     fi = open(classes_path, "r")
     for xi in fi:
@@ -113,8 +109,6 @@ if __name__ == "__main__":
     diction = classes_count_check(classes, current_dataset_path)
     print("Classes count", diction)
     classes_graph(diction)
-    # check_2 = input("Do you want to check dataset health (y/n)  : ")
-    # if check_2 == "y" or check_2 == "Y":
     print("Starting classes health check detector.....")
     full_dictionary = health_check_detector_crisp(diction)
     health_bal_graph_try(full_dictionary, diction)
